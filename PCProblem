@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+
+public class PCProblem {
+
+	public static void main (String args[])
+	{
+		List Lista = new List();
+		
+		Produtor P1 = new Produtor(Lista, 1, 5);
+		Consumidor C1 = new Consumidor(Lista, 1, 5);
+		
+		Produtor P2 = new Produtor(Lista, 2, 10);
+		Consumidor C2 = new Consumidor(Lista, 2, 10);
+		
+		Thread ThreadProdutor1 = new Thread (P1, "ThreadProdutor1");
+		Thread ThreadConsumidor1 = new Thread (C1, "ThreadConsumidor1");
+		
+		Thread ThreadProdutor2 = new Thread (P2, "ThreadProdutor2");
+		Thread ThreadConsumidor2 = new Thread (C2, "ThreadConsumidor2");
+		
+		ThreadProdutor1.start();
+		ThreadConsumidor1.start();
+		
+		ThreadProdutor2.start();
+		ThreadConsumidor2.start();
+		
+		System.out.println("Estado final da Lista:");
+		
+	}
+	
+}
